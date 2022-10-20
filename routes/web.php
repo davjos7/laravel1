@@ -7,6 +7,8 @@ use App\Http\Controllers\ProductoController;
 use App\Http\Controllers\Orlando;
 use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\OficinaController;
+use App\Http\Controllers\PedidoController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -18,6 +20,10 @@ use App\Http\Controllers\OficinaController;
 | contains the "web" middleware group. Now create something great!
 |
 */
+
+Route::get('/pedidos',
+    [PedidoController::class, 'listar']
+);
 
 Route::get('/', function () {
     return view('welcome');
@@ -33,8 +39,8 @@ Route::get('/productos',[ProductoController::class, 'listar']
 Route::get('/Orlando',[Orlando::class, 'listar']
 );
 
-Route::get('/oficinas',[OficinaController::class, 'listar']
-);
  //creando una ruta para listar clientes 
 Route::get('/clientes',[CustomerController::class,'listar']);
 
+Route::get('/oficinas',[OficinaController::class, 'listar']
+);
